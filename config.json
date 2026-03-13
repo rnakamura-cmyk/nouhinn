@@ -1,0 +1,29 @@
+{
+  "spreadsheet_id": "YOUR_SPREADSHEET_ID_HERE",
+  "credentials_path": "credentials.json",
+  "sheet_names": {
+    "job_list": "案件一覧"
+  },
+  "columns": {
+    "no": 0,
+    "job_title": 1,
+    "category": 2,
+    "reward_min": 3,
+    "reward_max": 4,
+    "client": 5,
+    "applications": 6,
+    "contracts": 7,
+    "deadline": 8,
+    "url": 9,
+    "applied_at": 10,
+    "status": 11,
+    "result": 12,
+    "memo": 13
+  },
+  "column_count": 14,
+  "header_row": [
+    "No.", "案件名", "カテゴリ", "報酬（下限）", "報酬（上限）",
+    "クライアント", "応募数", "契約状況", "締切日", "URL",
+    "応募日", "応募ステータス", "結果", "メモ"
+  ]
+}

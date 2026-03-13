@@ -1,0 +1,24 @@
+{
+  "site_name": "skillshift",
+  "site_url": "https://www.skill-shift.com",
+  "login_required": true,
+
+  "search": {
+    "categories": ["AI・機械学習", "業務効率化・自動化", "DX・デジタル化", "ITコンサルタント", "Webアプリ開発"],
+    "reward_min": 5000,
+    "status": "募集中のみ"
+  },
+
+  "apply_criteria": {
+    "deadline_days_min": 3,
+    "max_applications_per_run": 10,
+    "ng_keywords": ["デザイン", "翻訳", "語学", "常駐", "対面必須", "出社", "イラスト", "グラフィック"]
+  },
+
+  "form": {
+    "contract_amount_strategy": "negotiate",
+    "note": "初回アクセス時にCoworkがフォーム構造を確認してSKILL.mdに追記すること"
+  },
+
+  "output_dir": "/Users/ryonkook/自動応募/automation_bridge/inbox"
+}

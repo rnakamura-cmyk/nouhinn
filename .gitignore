@@ -1,0 +1,15 @@
+# 認証情報（絶対にcommitしない）
+credentials.json
+
+# 個人情報
+my_profile.md
+applied_urls.txt
+
+# 実行時生成ファイル
+venv/
+__pycache__/
+*.pyc
+logs/
+inbox/
+processed/
+error/

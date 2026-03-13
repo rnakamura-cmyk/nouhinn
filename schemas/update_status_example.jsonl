@@ -1,0 +1,2 @@
+{"action":"update_status","site":"crowdworks","url":"https://crowdworks.jp/public/jobs/12345","status":"応募済","applied_at":"2026-03-13","memo":"応募完了"}
+{"action":"update_status","site":"crowdworks","url":"https://crowdworks.jp/public/jobs/67890","status":"見送り","applied_at":"","memo":"単価が合わないため見送り"}
