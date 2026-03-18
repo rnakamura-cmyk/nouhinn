@@ -17,6 +17,12 @@
 |------------------------|-------------|
 | クラウドワークス / crowdworks / CW | `sites/crowdworks/` |
 | スキルシフト / skillshift / skill-shift | `sites/skillshift/` |
+| ハイプロ / hipro / HiPro Direct | `sites/hipro/` |
+| ふるさと兼業 / furusatokengyo | `sites/furusatokengyo/` |
+| オタノミ / otanomi | `sites/otanomi/` |
+| チイキズカン / chiikizukan | `sites/chiikizukan/` |
+| ライフル / lifull / LIFULL LOCAL MATCH | `sites/lifull/` |
+| ロッツフル / lotsful | `sites/lotsful/` |
 
 読み込むファイル：
 - `/Users/ryonkook/自動応募/automation_bridge/sites/{サイト名}/config.json`

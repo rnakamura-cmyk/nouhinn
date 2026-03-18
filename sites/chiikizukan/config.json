@@ -1,0 +1,25 @@
+{
+  "site_name": "chiikizukan",
+  "site_url": "https://chiiki-zukan.com/",
+  "login_required": true,
+
+  "search": {
+    "categories": ["IT・DX支援", "業務改善", "新規事業", "経営支援", "AI導入"],
+    "reward_min": 0,
+    "status": "募集中のみ",
+    "note": "チイキズカンは地域企業の副業マッチング。報酬下限を0に設定"
+  },
+
+  "apply_criteria": {
+    "deadline_days_min": 3,
+    "max_applications_per_run": 10,
+    "ng_keywords": ["デザイン", "翻訳", "語学", "常駐", "対面必須", "出社", "イラスト", "グラフィック"]
+  },
+
+  "form": {
+    "contract_amount_strategy": "negotiate",
+    "note": "初回アクセス時にCoworkがフォーム構造を確認してSKILL.mdに追記すること"
+  },
+
+  "output_dir": "/Users/ryonkook/自動応募/automation_bridge/inbox"
+}
