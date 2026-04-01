@@ -54,19 +54,54 @@
 
 ## 応募フォームの埋め方
 
-> ⚠️ 2026-04-01時点では全件スキップのためフォーム実機確認未完了。
-> 次回応募可能案件が出た時点で実フォームを開いて構造を確認し、このセクションを更新すること。
+> ✅ 確認済み（2026-04-02）：実フォームで全フィールドを確認・応募完了済み。
+> フォームURL形式: `/project/case/entry/{案件ID}`
+> 送信フロー: 申し込みボタン → 入力フォーム → 確認ボタン → 入力確認画面 → 登録ボタン → 申込完了
 
-**想定フィールド構成（確認前の推測）:**
+**フォームは通常のHTML form（React非使用）。通常の `.value` セットと `.dispatchEvent(new Event('change'))` で動作する。**
 
-| フィールド | 入力内容 |
-|-----------|--------|
-| 応募動機・志望理由 | 地域や課題への関心を交えた応募文を生成（COWORK_SKILL.md Step 4 のルールを基に、地域貢献の文脈も添える） |
-| 稼働可能時間・形式 | 「週5〜10時間、フルリモート希望」など |
-| 自己PR | my_profile.md の実績を引用 |
-| 添付ファイル | フォームに添付欄があれば `documents/` フォルダ内のファイルを添付 |
+### フィールド一覧（確認済み）
 
-> 実際のフォームは「申し込み」ボタンから開く（案件詳細ページ右上に表示）
+| # | フィールド名 | name属性 | 必須/任意 | 種類 | 入力内容 |
+|---|-----------|---------|---------|------|--------|
+| 1 | 名前 | itemStrVarchar01 | 必須 | text | プロフィールから自動入力済み |
+| 2 | ふりがな | itemStrVarchar02 | 必須 | text | 自動入力済み |
+| 3 | 性別 | itemStrText19 | 必須 | select | M=男性, F=女性, O=その他, N=無回答 |
+| 4 | 生年月日 | itemDatetime01 (year/month/day) | 任意 | select×3 | |
+| 5 | 電話番号 | itemStrVarchar03 | 必須 | text | |
+| 6 | メールアドレス | itemStrVarchar04 | 必須 | text | |
+| 7 | 適格請求書発行事業者登録番号 | itemStrVarchar05 | 任意 | text | |
+| 8 | お住まいの都道府県 | itemStrText20 | 必須 | select | 13=東京都 等 |
+| 9 | 住所（市町村） | itemStrVarchar06 | 必須 | text | |
+| 10 | 職歴①属性 | itemStrText08 | 必須 | select | GN0001=フリーランス, GN0002=個人事業主, GN0003=経営者 等 |
+| 11 | 職歴①入社年月 | itemDatetime02 (year/month/day) | 任意 | select×3 | |
+| 12 | 職歴①退職年月 | itemDatetime03 (year/month/day) | 任意 | select×3 | |
+| 13 | 職歴①企業名 | itemStrVarchar07 | 任意 | text | |
+| 14 | 職歴①部署名 | itemStrVarchar08 | 必須 | text | 「AXフリーランス（個人事業）」等 |
+| 15 | 職歴①ポジション | itemStrVarchar09 | 任意 | text | |
+| 16 | 職歴①業種 | itemStrVarchar14, itemStrVarchar15 | 必須 | select×2 | GN010007=IT・インターネット 等 |
+| 17 | 職歴①職種 | itemStrVarchar16, itemStrVarchar17 | 必須 | select×2 | GN020010=IT技術職 等 |
+| 18 | 職歴①フリーコメント | itemStrText01 | 任意 | textarea | |
+| 19 | 経験ある業種①②③ | itemStrVarchar18-19, itemStrText09-12 | ①必須 | select×2(各) | |
+| 20 | 得意な職種①②③ | itemStrText13-18 | 任意 | select×2(各) | |
+| 21 | これまでの経歴 | itemStrText02 | 任意 | textarea | |
+| 22 | 自己紹介・PR | itemStrText03 | 任意 | textarea | my_profile.md の実績を引用 |
+| 23 | 外部サービス・サイト | itemStrText04 | 任意 | textarea | |
+| 24 | **志望動機** | **itemStrText05** | **必須** | **textarea** | **応募文を入れるメインフィールド。地域貢献の文脈を添えると効果的** |
+| 25 | 希望する契約形態 | itemStrVarchar10[] | 必須 | checkbox | GN0001=業務委託（副業兼業）, GN0002=雇用（時短）, GN0003=お試し転職, GN0004=プロボノ, GN0005=インターン |
+| 26 | 参画可能な体制・条件 | itemStrVarchar11[] | 必須 | checkbox | GN0001=リモート対応, GN0002=現地対応, GN0003=移住可能, GN0004=早朝対応可, GN0005=夜間対応可, GN0006=日中対応可, GN0007=数日程度の短期間, GN0008=1ヶ月〜6ヶ月程度, GN0009=6ヶ月以上可 |
+| 27 | 対応可能な時間数 | itemStrVarchar12[] | 必須 | checkbox | GN0001=スキマ時間(週8時間未満), GN0002=週1日程度, GN0003=週2日程度, GN0004=週3日以上 |
+| 28 | 面談可能な日程 | itemStrText06 | 必須 | textarea | 「平日日中であればいつでも対応可能」等 |
+| 29 | 備考・ご要望など | itemStrText07 | 任意 | textarea | |
+
+### name属性のプレフィックス
+全フィールドのname属性は `mase_case_entry_type_a2[...]` の形式。例：`mase_case_entry_type_a2[itemStrText05]`
+
+### 注意事項
+- 添付ファイル欄は**なし**
+- プロフィール情報（名前・ふりがな・都道府県）はマイページ設定から自動入力される
+- 電話番号は必須だが自動入力されない → 毎回入力が必要
+- checkboxは `.checked = true` で選択可能（React非使用のため通常DOM操作でOK）
 
 ---
 
