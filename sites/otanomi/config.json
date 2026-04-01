@@ -4,15 +4,15 @@
   "login_required": true,
 
   "search": {
-    "categories": ["IT・システム", "業務効率化", "DX推進", "AI活用", "コンサルティング"],
-    "reward_min": 5000,
+    "categories": ["経営・事業企画", "新規事業", "ITコンサルティング", "DX推進", "組織・人事"],
+    "reward_min": 0,
     "status": "募集中のみ"
   },
 
   "apply_criteria": {
     "deadline_days_min": 3,
     "max_applications_per_run": 10,
-    "ng_keywords": ["デザイン", "翻訳", "語学", "常駐", "対面必須", "出社", "イラスト", "グラフィック"]
+    "ng_keywords": ["デザイン", "イラスト", "グラフィック", "翻訳", "語学", "プログラミング実装", "コーディング", "常駐必須", "出社必須"]
   },
 
   "form": {

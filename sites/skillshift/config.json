@@ -4,22 +4,22 @@
   "login_required": true,
 
   "search": {
-    "categories": ["AI・機械学習", "業務効率化・自動化", "DX・デジタル化", "ITコンサルタント", "Webアプリ開発"],
-    "reward_min": 5000,
+    "categories": ["ITコンサルタント", "DX・デジタル化", "新規事業・事業開発", "経営企画", "組織・人事"],
+    "reward_min": 0,
     "status": "募集中のみ"
   },
 
   "search_filters": {
     "remote_only": true,
     "work_style": "リモート可",
-    "preferred_keywords": ["n8n", "Dify", "GAS", "ChatGPT", "AI導入", "業務改善", "自動化", "DX", "ノーコード"],
+    "preferred_keywords": ["経営企画", "事業開発", "新規事業", "ITコンサル", "DX支援", "地方創生", "経営戦略", "採用戦略", "組織設計", "スタートアップ", "社長直下", "コンサル", "事業推進"],
     "note": "スキルシフトはキーワード検索 + カテゴリ選択 + 勤務形態フィルターが主な絞り込み手段"
   },
 
   "apply_criteria": {
     "deadline_days_min": 3,
     "max_applications_per_run": 10,
-    "ng_keywords": ["デザイン", "翻訳", "語学", "常駐", "対面必須", "出社", "イラスト", "グラフィック"]
+    "ng_keywords": ["デザイン", "イラスト", "グラフィック", "翻訳", "語学", "プログラミング実装", "コーディング", "常駐必須", "出社必須"]
   },
 
   "form": {

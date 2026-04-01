@@ -4,7 +4,7 @@
   "login_required": true,
 
   "search": {
-    "categories": ["IT・DX", "業務効率化", "新規事業", "経営支援", "AI活用"],
+    "categories": ["経営支援", "新規事業", "IT・DX", "組織・人材", "地方創生"],
     "reward_min": 0,
     "status": "募集中のみ",
     "note": "LIFULL LOCAL MATCHは地域副業マッチング。報酬下限を0に設定"
@@ -13,7 +13,7 @@
   "apply_criteria": {
     "deadline_days_min": 3,
     "max_applications_per_run": 10,
-    "ng_keywords": ["デザイン", "翻訳", "語学", "常駐", "対面必須", "出社", "イラスト", "グラフィック"]
+    "ng_keywords": ["デザイン", "イラスト", "グラフィック", "翻訳", "語学", "プログラミング実装", "コーディング", "常駐必須", "出社必須"]
   },
 
   "form": {

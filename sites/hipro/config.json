@@ -4,22 +4,22 @@
   "login_required": true,
 
   "search": {
-    "categories": ["DX・デジタル化", "業務改善・効率化", "ITコンサルタント", "AI活用", "新規事業立ち上げ"],
-    "reward_min": 5000,
+    "categories": ["経営企画", "新規事業立ち上げ", "ITコンサルタント", "DX・デジタル化", "組織・人事戦略"],
+    "reward_min": 0,
     "status": "募集中のみ"
   },
 
   "search_filters": {
     "region": "全国（リモート可）",
     "work_style": "副業・兼業",
-    "preferred_keywords": ["DX", "AI", "業務改善", "自動化", "ITコンサル", "新規事業", "GAS"],
+    "preferred_keywords": ["経営企画", "事業開発", "新規事業", "ITコンサル", "DX支援", "地方創生", "経営戦略", "採用戦略", "M&A", "スタートアップ", "社長直下", "コンサル", "プロジェクトマネジメント"],
     "note": "HiProは職種カテゴリ・地域・キーワードで絞り込み。地方副業案件がメイン"
   },
 
   "apply_criteria": {
     "deadline_days_min": 3,
     "max_applications_per_run": 10,
-    "ng_keywords": ["デザイン", "翻訳", "語学", "常駐", "対面必須", "出社", "イラスト", "グラフィック"]
+    "ng_keywords": ["デザイン", "イラスト", "グラフィック", "翻訳", "語学", "プログラミング実装", "コーディング", "常駐必須", "出社必須"]
   },
 
   "form": {

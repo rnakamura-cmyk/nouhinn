@@ -1,20 +1,20 @@
 {
   "_note": "パス設定は config.json の base_dir で一元管理。profile_path・output_dir はここに書かない。",
 
-  "sites": ["crowdworks"],
+  "sites": ["skillshift", "hipro", "furusatokengyo", "chiikizukan"],
 
   "search": {
-    "categories": ["経営", "DX・AI導入支援", "ChatGPT・AI活用", "業務自動化", "GAS・スプレッドシート", "Webアプリ開発"],
-    "reward_min": 5000,
+    "categories": ["経営企画", "事業開発", "新規事業", "ITコンサル", "DX支援", "地方創生", "経営戦略", "組織・人事"],
+    "reward_min": 0,
     "status": "募集中のみ",
-    "note": "カテゴリはチャットで上書き指定してもOK。例：「今日はGAS案件だけで」"
+    "note": "カテゴリはチャットで上書き指定してもOK。例：「今日は経営企画カテゴリだけで」"
   },
 
   "apply_criteria": {
     "deadline_days_min": 3,
     "skip_if_no_client_history": false,
     "max_applications_per_run": 10,
-    "ng_keywords": ["デザイン", "翻訳", "語学", "常駐", "対面必須", "出社", "イラスト", "グラフィック"]
+    "ng_keywords": ["デザイン", "イラスト", "グラフィック", "翻訳", "語学", "プログラミング実装", "コーディング", "常駐必須", "出社必須"]
   },
 
   "form": {
@@ -25,5 +25,5 @@
   },
 
   "message_strategy": "profile_match",
-  "message_strategy_note": "profile_match = my_profile.md の強みと案件内容を照合して、その案件に最適化した応募文を自動生成する。固定文は使わない。"
+  "message_strategy_note": "profile_match = my_profile.md の強みと案件内容を照合して、その案件に最適化した応募文を自動生成する。固定文は使わない。応募文スタイルは my_profile.md の「応募文スタイル」セクションに従うこと。"
 }

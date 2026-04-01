@@ -4,15 +4,15 @@
   "login_required": true,
 
   "search": {
-    "categories": ["経営", "DX・AI導入支援", "ChatGPT・AI活用", "業務自動化", "GAS・スプレッドシート", "Webアプリ開発"],
-    "reward_min": 5000,
+    "categories": ["経営", "DX・AI導入支援", "ITコンサルティング", "新規事業立ち上げ", "経営企画・事業企画"],
+    "reward_min": 0,
     "status": "募集中のみ",
-    "note": "カテゴリはチャットで上書き指定してもOK。例：「今日はGAS案件だけで」"
+    "note": "カテゴリはチャットで上書き指定してもOK。例：「今日は経営企画カテゴリだけで」"
   },
 
   "search_filters": {
     "remote_only": true,
-    "preferred_keywords": ["GAS", "ChatGPT", "AI導入", "業務自動化", "DX", "n8n", "Dify", "ノーコード", "スプレッドシート"],
+    "preferred_keywords": ["経営企画", "事業開発", "新規事業", "ITコンサル", "DX支援", "地方創生", "経営戦略", "採用戦略", "組織設計", "事業推進", "スタートアップ", "M&A", "社長直下", "コンサル"],
     "note": "クラウドワークスはカテゴリ選択 + キーワード検索が主な絞り込み手段"
   },
 
@@ -20,7 +20,7 @@
     "deadline_days_min": 3,
     "skip_if_no_client_history": false,
     "max_applications_per_run": 10,
-    "ng_keywords": ["デザイン", "翻訳", "語学", "常駐", "対面必須", "出社", "イラスト", "グラフィック"]
+    "ng_keywords": ["デザイン", "イラスト", "グラフィック", "翻訳", "語学", "プログラミング実装", "コーディング", "常駐必須", "出社必須"]
   },
 
   "form": {
