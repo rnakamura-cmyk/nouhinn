@@ -65,7 +65,7 @@ def get_all_rows(service, spreadsheet_id: str, sheet_name: str) -> list[list]:
     result = (
         service.spreadsheets()
         .values()
-        .get(spreadsheetId=spreadsheet_id, range=f"{sheet_name}!A:N")
+        .get(spreadsheetId=spreadsheet_id, range=f"{sheet_name}!A:O")
         .execute()
     )
     return result.get("values", [])
@@ -131,6 +131,7 @@ def process_append_job(service, spreadsheet_id: str, sheet_name: str, config: di
 
     new_row = [""] * config["column_count"]
     new_row[cols["no"]] = next_no
+    new_row[cols["site"]] = record.get("site", "")
     new_row[cols["job_title"]] = record.get("job_title", "")
     new_row[cols["category"]] = record.get("category", "")
     new_row[cols["reward_min"]] = record.get("reward_min", "")
