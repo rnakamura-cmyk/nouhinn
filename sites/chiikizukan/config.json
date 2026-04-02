@@ -4,7 +4,7 @@
   "login_required": true,
 
   "search": {
-    "categories": ["IT・DX支援", "業務改善", "新規事業", "経営支援", "AI導入"],
+    "categories": [],
     "reward_min": 0,
     "status": "募集中のみ",
     "note": "チイキズカンは地域企業の副業マッチング。報酬下限を0に設定"
@@ -12,16 +12,16 @@
 
   "search_filters": {
     "area": "全国",
-    "industry": ["IT・通信", "コンサルティング", "その他サービス"],
-    "specialty": ["経営企画", "新規事業開発", "組織・人事", "ITコンサルティング", "DX推進"],
-    "preferred_keywords": ["経営企画", "事業開発", "新規事業", "地方創生", "経営戦略", "採用戦略", "DX支援", "スタートアップ", "社長直下", "コンサル", "事業推進", "組織設計"],
+    "industry": [],
+    "specialty": [],
+    "preferred_keywords": [],
     "note": "チイキズカンはエリア・業種・専門領域・キーワードの4軸で検索できる"
   },
 
   "apply_criteria": {
     "deadline_days_min": 3,
-    "max_applications_per_run": 5,
-    "ng_keywords": ["デザイン", "イラスト", "グラフィック", "翻訳", "語学", "プログラミング実装", "コーディング", "常駐必須", "出社必須"]
+    "max_applications_per_run": 3,
+    "ng_keywords": []
   },
 
   "form": {
@@ -29,5 +29,5 @@
     "note": "初回アクセス時にCoworkがフォーム構造を確認してSKILL.mdに追記すること"
   },
 
-  "_output_note": "出力先は config.json の base_dir/inbox に統一。COWORK_SKILL.md が自動参照する。"
+  "_output_note": "出力先は config.json の base_dir/inbox に統一。PIPELINE_SKILL.md が自動参照する。"
 }

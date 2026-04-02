@@ -58,7 +58,7 @@
 
 ## Step 4. 各案件の応募文を生成
 
-candidates.jsonl の内容を **score 降順** で読み込む。
+candidates.jsonl の内容を **上から順に** 読み込む（Phase 1で既に3件に絞られている）。
 
 各案件について以下を生成する：
 

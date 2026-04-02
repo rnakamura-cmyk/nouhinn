@@ -1,8 +1,8 @@
 {
   "base_dir": "",
-  "gas_url": "https://script.google.com/macros/s/AKfycbwiihOtqEE0xK3fMxHoG1HAotY5mPhf7Q-9IiTv-pCUJF3lvLvgEbbNhV63KLF1AcLw8g/exec",
+  "gas_url": "",
   "sheet_names": {
-    "job_list": "案件一覧"
+    "job_list": "案件管理"
   },
   "columns": {
     "no": 0,
@@ -25,6 +25,6 @@
   "header_row": [
     "No.", "サイト名", "案件名", "カテゴリ", "報酬（下限）", "報酬（上限）",
     "クライアント", "応募数", "契約状況", "締切日", "URL",
-    "応募日", "応募ステータス", "結果", "メモ"
+    "応募日", "ステータス", "結果", "メモ"
   ]
 }

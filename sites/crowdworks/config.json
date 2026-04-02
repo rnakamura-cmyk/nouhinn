@@ -33,5 +33,5 @@
   "message_strategy": "profile_match",
   "message_strategy_note": "profile_match = my_profile.md の強みと案件内容を照合して、その案件に最適化した応募文を自動生成する。固定文は使わない。",
 
-  "_output_note": "出力先は config.json の base_dir/inbox に統一。COWORK_SKILL.md が自動参照する。"
+  "_output_note": "出力先は config.json の base_dir/inbox に統一。PIPELINE_SKILL.md が自動参照する。"
 }
