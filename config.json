@@ -1,6 +1,6 @@
 {
   "base_dir": "",
-  "gas_url": "https://script.google.com/macros/s/AKfycbwiihOtqEE0xK3fMxHoG1HAotY5mPhf7Q-9IiTv-pCUJF3lvLvgEbbNhV63KLF1AcLw8g/exec",
+  "gas_url": "",
   "sheet_names": {
     "job_list": "案件管理"
   },
