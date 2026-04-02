@@ -26,7 +26,7 @@
 
   "form": {
     "contract_amount_strategy": "negotiate",
-    "note": "初回アクセス時にCoworkがフォーム構造を確認してSKILL.mdに追記すること"
+    "note": "初回アクセス時にフォーム構造を確認してSKILL.mdに追記すること"
   },
 
   "_output_note": "出力先は config.json の base_dir/inbox に統一。PIPELINE_SKILL.md が自動参照する。"
