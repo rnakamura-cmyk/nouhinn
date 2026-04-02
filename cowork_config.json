@@ -1,7 +1,7 @@
 {
   "_note": "パス設定は config.json の base_dir で一元管理。profile_path・output_dir はここに書かない。",
 
-  "sites": ["skillshift", "hipro", "furusatokengyo", "chiikizukan"],
+  "sites": ["chiikizukan", "skillshift", "hipro"],
 
   "search": {
     "categories": ["経営企画", "事業開発", "新規事業", "ITコンサル", "DX支援", "地方創生", "経営戦略", "組織・人事"],
@@ -13,7 +13,7 @@
   "apply_criteria": {
     "deadline_days_min": 3,
     "skip_if_no_client_history": false,
-    "max_applications_per_run": 10,
+    "max_applications_per_run": 5,
     "ng_keywords": ["デザイン", "イラスト", "グラフィック", "翻訳", "語学", "プログラミング実装", "コーディング", "常駐必須", "出社必須"]
   },
 

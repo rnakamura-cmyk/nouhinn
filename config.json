@@ -1,7 +1,6 @@
 {
   "base_dir": "",
-  "spreadsheet_id": "YOUR_SPREADSHEET_ID_HERE",
-  "credentials_path": "credentials.json",
+  "gas_url": "https://script.google.com/macros/s/AKfycbwiihOtqEE0xK3fMxHoG1HAotY5mPhf7Q-9IiTv-pCUJF3lvLvgEbbNhV63KLF1AcLw8g/exec",
   "sheet_names": {
     "job_list": "案件一覧"
   },
