@@ -221,8 +221,6 @@ python sync_sheets.py
 
 毎日PCをオンにできる時間帯を教えてください。
 （例：8時〜12時、9時〜11時など）
-
-また、OSを教えてください。（Windows / Mac）
 ```
 
 回答を受けたら、その時間帯に収まるように**1時間ずつ3サイト分**のタスクを配置する。
@@ -236,35 +234,16 @@ python sync_sheets.py
 10:00  ハイプロ（一気通貫）
 ```
 
-**OSのタスクスケジューラに登録する。** `claude --dangerously-skip-permissions` を使うことで許可プロンプトなしで完全自走する。
-
-### Windowsの場合（タスクスケジューラ）
-
-以下のコマンドでタスクを登録する（{HH:MM} と {base_dir} はユーザーの回答で置換）：
-
-```bash
-schtasks /create /tn "AutoApply-Chiikizukan" /tr "claude --dangerously-skip-permissions -p \"チイキズカンで、スクレイピング→応募文作成→応募実行→スプシ同期を順番に実行してください。作業ディレクトリ: {base_dir}\"" /sc daily /st {HH:MM}
-
-schtasks /create /tn "AutoApply-Skillshift" /tr "claude --dangerously-skip-permissions -p \"スキルシフトで、スクレイピング→応募文作成→応募実行→スプシ同期を順番に実行してください。作業ディレクトリ: {base_dir}\"" /sc daily /st {HH:MM}
-
-schtasks /create /tn "AutoApply-Hipro" /tr "claude --dangerously-skip-permissions -p \"ハイプロで、スクレイピング→応募文作成→応募実行→スプシ同期を順番に実行してください。作業ディレクトリ: {base_dir}\"" /sc daily /st {HH:MM}
-```
-
-### Macの場合（cron）
-
-```bash
-crontab -e
-```
-
-以下を追記（{M} {H} はユーザーの回答で置換）：
+`mcp__scheduled-tasks__create_scheduled_task` でスケジュールタスクを作成する。
+各タスクのプロンプトは以下の形式：
 
 ```
-{M} {H} * * * cd {base_dir} && claude --dangerously-skip-permissions -p "チイキズカンで、スクレイピング→応募文作成→応募実行→スプシ同期を順番に実行してください。作業ディレクトリ: {base_dir}"
-{M} {H} * * * cd {base_dir} && claude --dangerously-skip-permissions -p "スキルシフトで、スクレイピング→応募文作成→応募実行→スプシ同期を順番に実行してください。作業ディレクトリ: {base_dir}"
-{M} {H} * * * cd {base_dir} && claude --dangerously-skip-permissions -p "ハイプロで、スクレイピング→応募文作成→応募実行→スプシ同期を順番に実行してください。作業ディレクトリ: {base_dir}"
+{サイト名}で、スクレイピング→応募文作成→応募実行→スプシ同期を順番に実行してください。
+作業ディレクトリ: {base_dir}
 ```
 
-タスク登録後、ユーザーに登録内容を確認させる。
+**注意：初回実行時にツール許可プロンプトが出る。「Always allow」を押せば以降は自走する。**
+タスク作成後、ユーザーに「1つ目のタスクを Run now して、許可を全部通してください」と案内する。
 
 ---
 
