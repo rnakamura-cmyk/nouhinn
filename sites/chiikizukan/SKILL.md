@@ -9,28 +9,14 @@
 
 ## 検索手順
 
-`config.json` の `search_filters` を参照して以下の手順で操作する。
-
-チイキズカンは**エリア・業種・専門領域・キーワード**の4軸で検索できる。
-
 ### 1. 案件一覧ページにアクセス
-https://chiiki-zukan.com/ にアクセスし、「案件を探す」または案件一覧へ進む。
+https://chiiki-zukan.com/projects にアクセスする。
+**フィルターは設定しない。新着順（デフォルト）でそのまま表示する。**
 
-### 2. 4軸のフィルターを設定
-絞り込みパネルで以下を順番に設定：
-
-| フィルター項目 | 設定値 |
-|-------------|------|
-| ① エリア | config.json `search_filters.area` → 「全国」を選択（リモート可案件が表示される） |
-| ② 業種 | config.json `search_filters.industry` → 「IT・通信」「コンサルティング」等にチェック |
-| ③ 専門領域 | config.json `search_filters.specialty` → 「DX推進」「業務改善・効率化」「AIシステム導入」等にチェック |
-| ④ キーワード | `preferred_keywords` から入力（例：「AI」「DX」「自動化」「GAS」） |
-
-### 3. 検索実行・案件を収集
-- 絞り込み後に表示された案件を上から順に確認（最大20件程度）
-- PIPELINE_SKILL.md Step 3 の基準でフィルタリング
-- `preferred_keywords` に合致する案件を優先
-- 報酬が低くても地域DX・新規事業系は応募対象に含める
+### 2. 案件を上から20件チェック
+- 表示された案件を**上から順に20件だけ**確認する
+- フィルタリングは SCRAPE_SKILL.md の Step 3 に従う（applied_urls除外 → ng_keywords除外 → preferred_keywords一致判定）
+- 20件チェックしたら打ち切り。条件一致3件で即終了
 
 ---
 
