@@ -133,6 +133,11 @@ SKILL.md に記載された送信フローに従って送信。
 **② applied_urls.txt にURLを追記**
 `{base_dir}/applied_urls.txt` の末尾にURLを1行追加する。
 
+**⚠️ 書き込み方法の注意（文字化け防止）：**
+- **Bashのechoコマンドは絶対に使わない**（Windows環境で日本語が壊れる）
+- applied.jsonl → Editツール or Writeツールで書き込む
+- applied_urls.txt → Editツール or Writeツールで書き込む
+
 ---
 
 ## Step 6. 完了処理
