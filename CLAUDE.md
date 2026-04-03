@@ -95,14 +95,14 @@ git --version
 
 **さらに、Q4の回答をもとに以下のファイルを更新する：**
 
-- `cowork_config.json` の `search.categories` にQ4の職種・業界を反映
+- `pipeline_config.json` の `search.categories` にQ4の職種・業界を反映
 - `sites/chiikizukan/config.json` の `search_filters.preferred_keywords` にQ4のキーワードを反映
 - `sites/skillshift/config.json` の `search_filters.preferred_keywords` にQ4のキーワードを反映
 - `sites/hipro/config.json` の `search_filters.preferred_keywords` にQ4のキーワードを反映
 
 **Q5の回答をもとに以下を更新する：**
 
-- `cowork_config.json` の `apply_criteria.ng_keywords` にQ5のNG条件を反映
+- `pipeline_config.json` の `apply_criteria.ng_keywords` にQ5のNG条件を反映
 - 各サイトの `config.json` の `apply_criteria.ng_keywords` にも同様に反映
 
 ---
@@ -205,46 +205,23 @@ URLを受け取ったら `config.json` の `gas_url` を更新する。
 （例：8時〜12時、9時〜11時など）
 ```
 
-回答を受けたら、その時間帯に収まるように**1時間ずつ3サイト分 + スプシ同期**を配置する。
-
-各サイトは「スクレイピング+応募文作成」と「応募」の2タスクに分割し、10分間隔で配置する。
-応募タスクから次のサイトのスクレイピングまでは30分空ける。
+回答を受けたら、その時間帯に収まるように**1時間ずつ3サイト分**のタスクを配置する。
+各サイトは一気通貫（スクレイピング→応募文作成→応募→スプシ同期）で1タスク。
 
 例：ユーザーが「8時〜12時」と答えた場合：
 
 ```
-08:00  チイキズカン スクレイピング+応募文作成
-08:10  チイキズカン 応募
-08:40  スキルシフト スクレイピング+応募文作成
-08:50  スキルシフト 応募
-09:20  ハイプロ スクレイピング+応募文作成
-09:30  ハイプロ 応募
-10:00  スプシ同期
+08:00  チイキズカン（一気通貫）
+09:00  スキルシフト（一気通貫）
+10:00  ハイプロ（一気通貫）
 ```
 
 スケジュールタスクを `mcp__scheduled-tasks__create_scheduled_task` で作成する。
 各タスクのプロンプトは以下の形式：
 
-**スクレイピング+応募文作成タスク：**
 ```
-{サイト名}のスクレイピングと応募文作成を実行してください。
+{サイト名}で、スクレイピング→応募文作成→応募実行→スプシ同期を順番に実行してください。
 作業ディレクトリ: {base_dir}
-1. スクレイピングを実行してください。{サイト名}で。
-2. 応募文を作成してください。{サイト名}で。
-```
-
-**応募タスク：**
-```
-{サイト名}の応募を実行してください。
-作業ディレクトリ: {base_dir}
-応募を実行してください。{サイト名}で。
-```
-
-**スプシ同期タスク：**
-```
-スプシ同期してください。
-作業ディレクトリ: {base_dir}
-スプシ同期を実行してください。
 ```
 
 ---
@@ -255,21 +232,25 @@ URLを受け取ったら `config.json` の `gas_url` を更新する。
 
 ```
 セットアップ完了まであと一歩です！
-実際にチイキズカンで1件だけ応募して動作確認しましょう。
+実際にチイキズカンで1件だけ応募して動作確認しますか？
+
+y で実行 / n でスキップ
 ```
 
-以下を実行する：
-1. チイキズカンでスクレイピング（1件だけ取得）
-2. その1件の応募文を作成
-3. フォーム送信（1件だけ）
-4. スプシ同期
+**「n」が返ってきたら** → フェーズ6をスキップして完了メッセージへ。
 
-完了したら：
+**「y」が返ってきたら** → 以下のコマンドを実行する：
+
+```bash
+claude --dangerously-skip-permissions -p "チイキズカンで、スクレイピング→応募文作成→応募実行→スプシ同期を順番に実行してください。作業ディレクトリ: {base_dir}"
+```
+
+このコマンドは許可プロンプトなしで自走する。完了を待ってから以下を伝える：
 
 ```
 セットアップ完了です！
 
-今、チイキズカンに1件応募しました。
+チイキズカンへの応募が完了しました。
 スプレッドシートを確認してみてください。こんな風に毎日応募結果が溜まっていきます。
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -289,18 +270,19 @@ URLを受け取ったら `config.json` の `gas_url` を更新する。
 ```
 案件自動応募/
 ├── CLAUDE.md              ← このファイル（セットアップ案内）
-├── PIPELINE_SKILL.md      ← タスクルーター
-├── SCRAPE_SKILL.md        ← Phase 1: 候補収集（3件）
+├── PIPELINE_SKILL.md      ← パイプライン実行ルーター
+├── SCRAPE_SKILL.md        ← Phase 1: 候補収集（上から20件→最大3件）
 ├── DRAFT_SKILL.md         ← Phase 2: 応募文作成
 ├── APPLY_SKILL.md         ← Phase 3: フォーム送信
-├── my_profile.md          ← プロフィール（セットアップで生成）
-├── config.json            ← GAS URL・パス設定
-├── cowork_config.json     ← 検索条件・応募基準
-├── applied_urls.txt       ← 応募済みURL（重複防止）
+├── sync_sheets.py         ← Phase 4: GAS経由スプシ同期
+├── my_profile.md          ← プロフィール（セットアップで生成・.gitignore対象）
+├── config.json            ← GAS URL・カラム定義
+├── pipeline_config.json   ← 検索条件・応募基準
+├── applied_urls.txt       ← 応募済みURL（重複防止・.gitignore対象）
 ├── sites/
-│   ├── skillshift/        ← サイト別設定（config.json + SKILL.md）
-│   ├── hipro/
-│   └── chiikizukan/
+│   ├── chiikizukan/       ← サイト別設定（config.json + SKILL.md）
+│   ├── skillshift/
+│   └── hipro/
 ├── inbox/                 ← 各フェーズの出力（jsonl）
 ├── processed/             ← 処理済みファイル
 ├── error/                 ← エラーファイル

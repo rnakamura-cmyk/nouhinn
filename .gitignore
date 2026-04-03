@@ -3,6 +3,10 @@ credentials.json
 
 # 個人情報
 applied_urls.txt
+my_profile.md
+
+# Claude Code設定（個人環境）
+.claude/
 
 # 添付書類（個人情報）
 documents/*
@@ -16,3 +20,6 @@ logs/
 inbox/
 processed/
 error/
+
+# テスト用一時ファイル
+tmp_*
